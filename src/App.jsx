@@ -28,7 +28,9 @@ function App() {
 
   return (
     <div className="App">
-      N
+      {crossword.grid.map(item => (
+        <div>{`${item}`}</div>
+      ))}
     </div>
   )
 }
