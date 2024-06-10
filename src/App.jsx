@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react'
 
-import Crossword from '@jaredreisinger/react-crossword'
+import axios from 'axios'
 
 import './App.css'
 
 function App() {
   const [crossword, setCrossword] = useState([]);
+
     useEffect(() => {
-      fetch('https://github.com/doshea/nyt_crosswords/blob/master/1976/01/01.json')
-        .then((res) => {
-          return res.json();
+      axios.get("https://raw.githubusercontent.com/doshea/nyt_crosswords/master/1980/01/01.json")
+        .then(response => {
+          setCrossword(response.data);
         })
-        .then((data) => {
-          console.log(data);
-          setCrossword(data);
+        .catch(error => {
+          console.error(error);
         });
     }, []);
 
+    console.log(crossword)
   // const [guesses] = useState(() => {
   //   return JSON.parse(localStorage.getItem('guesses')) || []
   // })
@@ -27,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-
+      N
     </div>
   )
 }
