@@ -1,13 +1,25 @@
 .App {
-  display: flex; 
-  flex-direction: row;
-  margin: 0 auto;
-  max-height: 1080px;
-  max-width: 1920px;
+  min-height: 100vh;
+  width: 100%;
 }
 
-@media only screen and (max-width: 1000px) {
-  .App {
-    flex-direction: column;
-  }
+.container {
+  height: 60vh;
+  width: 60vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.cell {
+  height: 60px;
+  width: 60px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell.empty {
+  background-color: black;
 }

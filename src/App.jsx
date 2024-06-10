@@ -17,20 +17,25 @@ function App() {
         });
     }, []);
 
-    console.log(crossword)
-  // const [guesses] = useState(() => {
-  //   return JSON.parse(localStorage.getItem('guesses')) || []
-  // })
+  const [guesses] = useState(() => {
+    return JSON.parse(localStorage.getItem('guesses')) || []
+  })
 
-  // useEffect(() => {
-  //   window.localStorage.setItem('guesses', JSON.stringify(guesses));
-  // }, [guesses]);
+  useEffect(() => {
+    window.localStorage.setItem('guesses', JSON.stringify(guesses));
+  }, [guesses]);
 
   return (
     <div className="App">
-      {crossword.grid.map(item => (
-        <div>{`${item}`}</div>
-      ))}
+      <div className='container'>
+        {crossword.grid ? (
+          crossword.grid.map((item, index) => (
+            <div key={index} className={`cell ${item === '.' ? 'empty' : ''}`}>
+              {`${item}`}
+            </div>
+          ))
+        ) : null}
+      </div>
     </div>
   )
 }
